@@ -1,0 +1,247 @@
+
+@font-face {
+    font-family: 'arial';
+    src: url("../fonts/bpg_arial_2009.ttf");
+}
+
+@font-face {
+    font-family: 'mtavruli';
+    src: url("../fonts/bpg_extrasquare_mtavruli_2009.ttf");
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'arial';
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'mtavruli';
+}
+
+.viewPort {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #eaeaea;
+    overflow: hidden;
+
+    -webkit-perspective: 20px;
+    -o-perspective: 20px;
+    -moz-perspective: 20px;
+    -ms-perspective: 20px;
+    perspective: 20px;
+}
+
+.viewPort .scene, .viewPort .scene .sceneObject {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sceneObject {
+    -webkit-transition: opacity 2s ease;
+    -moz-transition: opacity 2s ease;
+    -o-transition: opacity 2s ease;
+    -ms-transition: opacity 2s ease;
+    transition: opacity 2s ease;
+    opacity: 0;
+}
+
+.sceneBackground {
+  opacity: 1;
+  z-index: -999;
+  background: url(../images/bg.jpg) no-repeat;
+}
+
+.table {
+  display: table;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.image-fluid {
+  width: 100%;
+}
+
+.image-fluid img {
+  width: 100%;
+}
+
+.scene .active, .scene .static-object {
+    opacity: 1;
+}
+
+.zoomed .static-object {
+  opacity: 0;
+}
+
+.zoomed .content-object {
+  overflow: auto;
+}
+
+.viewPort .scene {
+    -webkit-transition: all 1.7s ease;
+    -moz-transition: all 1.7s ease;
+    -o-transition: all 1.7s ease;
+    -ms-transition: all 1.7s ease;
+    transition: all 1.7s ease;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform: translateZ(-800px);
+    -o-transform: translateZ(-800px);
+    -moz-transform: translateZ(-800px);
+    transform: translateZ(-800px);
+}
+
+.content-container {
+    display: table;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    padding: 0 20px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.layout-sidebar {
+    position: fixed;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    background-color: #006980;
+    transition: all 1s ease;
+}
+
+.layout-content {
+    position: absolute;;
+    left: 40px;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    transition: all 1s ease;
+}
+
+.layout-sidebar:hover, .sidebar-opened {
+    width: 200px;
+}
+
+.layout-sidebar:hover ~ .layout-content, .sidebar-opened ~ .layout-content {
+    left: 200px;
+}
+
+.sidebar-closed, .sidebar-closed:hover {
+    width: 40px;
+}
+
+.sidebar-closed:hover ~ .layout-content {
+    left: 40px;
+}
+
+.sticker {
+    position: absolute;
+    font-size: 26px;
+    bottom: 0px;
+    right: 0px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    transition: all .7s ease;
+    color: #eaeaea;
+    cursor: pointer;
+}
+
+.sidebar-opened .sticker {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    color: #000;
+}
+
+.sidebar-closed .sticker {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+    color: #000;
+}
+
+.navigation {
+    margin: 0;
+    padding: 0;
+    float: right;
+    width: 200px;
+}
+
+.navigation-link:hover, .sticker:hover {
+    color: #000;
+}
+
+.navigation-link {
+    display: table;
+    vertical-align: middle;
+    position: relative;
+    text-align: right;
+    list-style: none;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    color: #eaeaea;
+
+    -webkit-transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -o-transition: all .7s ease;
+    -ms-transition: all .7s ease;
+    transition: all .7s ease;
+}
+
+.navigation-link a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.navigation-link span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+.navigation-link i {
+    display: table-cell;
+    vertical-align: middle;
+    width: 40px;
+    font-size: 26px;
+    text-align: center;
+}
+
+.navigation .active {
+    color: #006980;
+    background-color: #eaeaea;
+}
